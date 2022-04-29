@@ -34,7 +34,7 @@ const Navigation = () => {
               SIGN OUT
             </span>
           ) : (
-            <Link className="nav-link" to="/sign-in">
+            <Link className="nav-link" to="/auth">
               SIGN IN
             </Link>
           )}
