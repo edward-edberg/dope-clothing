@@ -1,18 +1,8 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import Home from "./routes/home/home.component";
-import Navigation from "./components/navigation/navigation.component";
-import Authentication from "./components/authentication/authentication.component";
-
-const Shop = () => {
-  return (
-    <div>
-      <div>
-        <h1>I am the shop bar</h1>
-      </div>
-      <Outlet />
-    </div>
-  );
-};
+import Navigation from "./routes/navigation/navigation.component";
+import Authentication from "./routes/authentication/authentication.component";
+import Shop from "./routes/shop/shop-component";
 
 const App = () => {
   return (
