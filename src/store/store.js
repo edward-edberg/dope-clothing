@@ -45,17 +45,11 @@ const middleWares = [
 //     window.window.__REDUX_DEVTOOLS_EXTENSION__) ||
 //   compose;
 
-const composedEnhancers = compose(
-  applyMiddleware(...middleWares),
-  process.env.NODE_ENV === "development" &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const composedEnhancers = compose(applyMiddleware(...middleWares));
+// process.env.NODE_ENV === "development" &&
+//   window.__REDUX_DEVTOOLS_EXTENSION__();
 
-export const store = createStore(
-  persistedReducer,
-  // applyMiddleware(sagaMiddleware)
-  composedEnhancers
-);
+export const store = createStore(persistedReducer, composedEnhancers);
 
 sagaMiddleware.run(rootSaga);
 
