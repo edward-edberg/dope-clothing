@@ -1,5 +1,7 @@
 import { compose, createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+
 import { persistStore, persistReducer, autoRehydrate } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
@@ -45,11 +47,18 @@ const middleWares = [
 //     window.window.__REDUX_DEVTOOLS_EXTENSION__) ||
 //   compose;
 
-const composedEnhancers = compose(applyMiddleware(...middleWares));
+// const composedEnhancers = compose(
+//   applyMiddleware(...middleWares),
+//   process.env.NODE_ENV === "production" && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 // process.env.NODE_ENV === "development" &&
 //   window.__REDUX_DEVTOOLS_EXTENSION__();
 
-export const store = createStore(persistedReducer, composedEnhancers);
+// export const store = createStore(persistedReducer, composedEnhancers);
+export const store = createStore(
+  persistedReducer,
+  composeWithDevTools(applyMiddleware(...middleWares))
+);
 
 sagaMiddleware.run(rootSaga);
 
