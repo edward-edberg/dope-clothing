@@ -21,12 +21,20 @@ export const Body = styled.div`
   opacity: 0.7;
   position: absolute;
 
+  @media screen and (max-width: 800px) {
+    padding: 0 10px;
+  }
+
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
     color: #4a4a4a;
     text-transform: uppercase;
+
+    @media screen and (max-width: 800px) {
+      font-size: 20px;
+    }
   }
 
   p {
@@ -65,5 +73,9 @@ export const DirectoryItemContainer = styled.div`
 
   &:last-child {
     margin-left: 7.5px;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `;
